@@ -1,6 +1,3 @@
-// /src/Context/Cart/CartReducer.jsx
-
-//Import the Action types
 import {
     REMOVE_ITEM,
     ADD_TO_CART,
@@ -9,6 +6,14 @@ import {
     CHECKOUT,
     CLEAR,
   } from "./CartTypes.js";
+  
+  // Save the cartItems to local storage
+  const Storage = (cartItems) => {
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(cartItems.length > 0 ? cartItems : [])
+    );
+  };
   
   // Export function to calculate the total price of the cart and the total quantity of the cart
   export const sumItems = (cartItems) => {
@@ -98,4 +103,3 @@ import {
   };
   
   export default CartReducer;
-  
