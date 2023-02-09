@@ -3,10 +3,22 @@ import CartContext from "./CartContext";
 import CartReducer from "./CartReducer";
 import { sumItems } from "./CartReducer";
 
+//Local Storage
+const storage = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : [];
+
 const CartState = ({ children }) => {
-  //   Initial State of the cart
+  //Initial State of the cart
+  // const initialState = {
+  //   cartItems: [],
+  //   checkout: false,
+  // };
+
+  //Change the code above to that below to get the initial state from local storage
   const initialState = {
-    cartItems: [],
+    cartItems: storage,
+    ...sumItems(storage),
     checkout: false,
   };
 
@@ -44,7 +56,7 @@ const CartState = ({ children }) => {
   };
 
   return (
-    //Add the functions that have been defined above into the Context provider, and pass on to the children
+    //Add the above functions into the Context provider, and pass to the children
     <CartContext.Provider
       value={{
         showCart: state.showCart,
@@ -55,6 +67,7 @@ const CartState = ({ children }) => {
         decrease,
         handleCheckout,
         clearCart,
+        // To access the total, we need to pass in the state
         ...state,
       }}
     >
