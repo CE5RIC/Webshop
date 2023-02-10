@@ -6,6 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import styled from "styled-components";
 import CartContext from "../Context/Cart/CartContext";
 import { useContext } from "react";
+import AppleIcon from '@mui/icons-material/Apple';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -31,7 +32,9 @@ const Navbar = () => {
     <Nav>
       <NavContainer>
         <Left>
-          <Link to={"/"}>FASHION.</Link>
+          <Link to="/"><AppleIcon/></Link>
+          
+        
         </Left>
 
         <Right>
@@ -55,7 +58,7 @@ const Navbar = () => {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <a href="https://twitter.com/israelmitolu" target="_blank">
+                <a href="https://porfolioofcedricdierckx.netlify.app/" target="_blank">
                   Contact
                 </a>
               </NavItem>
@@ -63,8 +66,8 @@ const Navbar = () => {
                 <Link to="/cart" onClick={() => setToggle(!toggle)}>
                   <p>Cart</p>
                   <NavCartItem>
-                    <ShoppingCartIcon/>
-                    <img src="" alt="Shopping cart" />
+                
+                    <img src="/icons/cart.svg" alt="Cart" />
                     {/* If the number of cartItems is greater than 0, display the
                     number of items in the cart */}
                     {cartItems.length > 0 && (
@@ -96,7 +99,8 @@ const Nav = styled.nav`
   height: 4.5rem;
   font-size: 1em;
   z-index: 50;
-  background-color: #eee;
+  background-color: #F5F5F7;
+  
   @media (max-width: 768px) {
     font-size: 0.85rem;
     border: none;

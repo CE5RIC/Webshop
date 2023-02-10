@@ -5,6 +5,9 @@ import { formatCurrency } from "../utils";
 //import TrashIcon from "assets/public/icons/trash-outline.svg";
 //import Plus from "/assets/icons/add-circle-outline.svg";
 //import Minus from "/assets/icons/remove-circle-outline.svg";
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const CartItem = ({ product }) => {
   const { removeFromCart, increase, decrease } = useContext(CartContext);
@@ -23,7 +26,7 @@ const CartItem = ({ product }) => {
           onClick={() => increase(product)}
           className="btn btn-primary btn-sm mr-2 mb-1"
         >
-          <Icon src="" alt="" />
+          <AddIcon/>
         </button>
 
         <div>
@@ -32,13 +35,13 @@ const CartItem = ({ product }) => {
 
         {product.quantity > 1 && (
           <button onClick={() => decrease(product)} className="btn">
-            <Icon src="" alt="" />
+            <RemoveIcon/>
           </button>
         )}
 
         {product.quantity === 1 && (
           <button onClick={() => removeFromCart(product)} className="btn">
-            <Icon src="" alt="" />
+            <RemoveIcon/>
           </button>
         )}
       </BtnContainer>
